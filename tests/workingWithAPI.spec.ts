@@ -35,6 +35,7 @@ test("has title", async ({ page }) => {
     }
   );
 
+  await page.goto("https://conduit.bondaracademy.com/"); // Ensure the page is loaded
   await expect(page.locator(".navbar-brand")).toHaveText("conduit");
   await page.getByText("Global Feed").click();
   await expect(page.locator("app-article-list h1").first()).toContainText(
