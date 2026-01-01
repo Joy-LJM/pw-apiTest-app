@@ -1,6 +1,5 @@
 import { test, expect } from "@playwright/test";
 import tags from "../test-data/tags.json";
-import { request } from "node:http";
 
 test.beforeEach(async ({ page }) => {
   // intercept request and provide mock data
