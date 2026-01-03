@@ -32,7 +32,7 @@ export default defineConfig({
     trace: "on-first-retry",
     extraHTTPHeaders: { Authorization: `Token ${process.env.ACCESS_TOKEN}` },
   },
-
+  // globalSetup:require.resolve('./global-setup.ts'),
   /* Configure projects for major browsers */
   projects: [
     {
@@ -58,6 +58,11 @@ export default defineConfig({
       testMatch:'likesCounter.spec.ts',
       use: { ...devices["Desktop Chrome"], storageState: ".auth/user.json" },
       dependencies: ["articleSetup"],
+    },
+    {
+      name: "likeCounterGlobal",
+      testMatch:'likesCounterGlobal.spec.ts',
+      use: { ...devices["Desktop Chrome"], storageState: ".auth/user.json" },
     },
     /* Test against mobile viewports. */
     // {
